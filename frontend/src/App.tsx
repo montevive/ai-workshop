@@ -1,8 +1,8 @@
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import { CssBaseline } from '@mui/material';
-// import { MainLayout } from './layouts/MainLayout';
-// import { ExperiencesPage } from './pages/ExperiencesPage';
+import { MainLayout } from './layouts/MainLayout';
+import { ExperiencesPage } from './pages/ExperiencesPage';
 
 // Import other pages as you create them
 // import { HomePage } from './pages/HomePage';
@@ -11,11 +11,19 @@ import { CssBaseline } from '@mui/material';
 
 const App: React.FC = () => {
   return (
-    <>
+    <BrowserRouter>
       <CssBaseline />
-      <h1>hola</h1>
+      <MainLayout>
+        <Routes>
+          <Route path="/experiences" element={<ExperiencesPage />} />
+          {/* Add other routes as you create them */}
+          {/* <Route path="/" element={<HomePage />} /> */}
+          {/* <Route path="/profile" element={<ProfilePage />} /> */}
+          {/* <Route path="/bookings" element={<BookingsPage />} /> */}
+        </Routes>
+      </MainLayout>
       
-    </>
+    </BrowserRouter>
   );
 };
 
